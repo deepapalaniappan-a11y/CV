@@ -14,25 +14,36 @@
   .skip { position:absolute; left:-999px; top:0; background:#fde68a;
     color:#78350f; padding:.6rem 1rem; }
   .skip:focus { left:0; }
-  main { max-width:54rem; margin:0 auto; padding:2.2rem 1.4rem 4rem; }
+  main { max-width:48rem; margin:0 auto; padding:2.2rem 1.4rem 4rem; }
   header.cv { text-align:center; border-bottom:3px solid var(--ink);
     padding-bottom:1rem; margin-bottom:1.4rem; }
   h1 { font-size:2.2rem; margin:.2rem 0; }
   .headline { color:var(--accent); font-weight:700; }
   .contact { color:var(--muted); font-size:.95rem; margin-top:.5rem; }
-  h2 { font-size:1.15rem; text-transform:uppercase; letter-spacing:.04em;
-    border-bottom:1px solid var(--rule); padding-bottom:.25rem;
-    margin:2rem 0 .8rem; }
+  h2 { font-size:1.3rem; border-bottom:1px solid var(--rule);
+    padding-bottom:.25rem; margin:2.4rem 0 .8rem;
+    scroll-margin-top:.5rem; }
   h3 { font-size:1rem; margin:1rem 0 .15rem; }
   .dates { color:var(--muted); font-size:.9rem; font-style:italic;
     margin:.1rem 0 .4rem; }
   ul { margin:.3rem 0 .6rem; padding-left:1.2rem; }
   li { margin:.25rem 0; }
-  ul.grid { list-style:none; padding:0; display:grid;
-    grid-template-columns:1fr 1fr; gap:.2rem .8rem; }
-  ul.grid li { padding-left:1.1rem; position:relative; }
-  ul.grid li::before { content:"\2022"; position:absolute; left:0;
+  ul.exp { list-style:none; padding:0; }
+  ul.exp > li { margin:.35rem 0; }
+  details { border-bottom:1px solid var(--rule); padding:.1rem 0; }
+  summary { cursor:pointer; font-weight:600; padding:.5rem 0;
     color:var(--accent); }
+  summary:focus-visible { outline:3px solid #78350f;
+    background:#fde68a; color:#0b0c0c; }
+  details[open] summary { margin-bottom:.2rem; }
+  details ul { margin:.2rem 0 .6rem; }
+  nav.toc { border:1px solid var(--rule); border-radius:.4rem;
+    padding:.6rem 1rem; margin:0 0 1.8rem; background:#f8f9fb; }
+  nav.toc h2 { border:0; margin:.2rem 0 .5rem; font-size:1rem;
+    padding:0; }
+  nav.toc ul { list-style:none; padding:0; margin:0; display:flex;
+    flex-wrap:wrap; gap:.35rem 1.1rem; }
+  nav.toc li { margin:0; }
   .note { color:var(--muted); font-style:italic; font-size:.92rem; }
   a { color:var(--accent); }
   a:focus-visible { outline:3px solid #78350f; background:#fde68a;
@@ -41,9 +52,13 @@
   .actions a { display:inline-block; border:1px solid var(--accent);
     padding:.4rem .9rem; border-radius:.3rem; text-decoration:none;
     font-size:.95rem; }
-  @media (max-width:560px) { ul.grid { grid-template-columns:1fr; } }
-  @media print { .skip,.actions { display:none; } a { color:var(--ink);
-    text-decoration:none; } body { font-size:10.5pt; } }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important;
+    transition:none !important; } }
+  @media print { .skip,.actions,nav.toc { display:none; }
+    details > * { display:block; }
+    summary { font-weight:700; color:var(--ink); }
+    a { color:var(--ink); text-decoration:none; }
+    body { font-size:10.5pt; } }
 </style>
 </head>
 <body>
@@ -54,12 +69,27 @@
   <p class="headline">Disability Inclusion &amp; Accessibility | Policy, Research and Capacity Building | Government and International Organisations</p>
   <p class="contact"><a href="mailto:deepa.palaniappan@gmail.com">deepa.palaniappan@gmail.com</a> <span aria-hidden="true">·</span> <a href="tel:+919110041713">+91 9110041713</a> <span aria-hidden="true">·</span> <span>Bangalore, India</span> <span aria-hidden="true">·</span> <a href="https://disability-rights-repository.org">disability-rights-repository.org</a> <span aria-hidden="true">·</span> <a href="https://bit.ly/CV-Deepa">bit.ly/CV-Deepa</a></p>
 </header>
+<nav class="toc" aria-labelledby="toc-h">
+<h2 id="toc-h">On this page</h2>
+<ul>
+  <li><a href="#profile">PROFILE</a></li>
+  <li><a href="#education">EDUCATION</a></li>
+  <li><a href="#areas-of-expertise">AREAS OF EXPERTISE</a></li>
+  <li><a href="#initiatives">INITIATIVES</a></li>
+  <li><a href="#professional-experience">PROFESSIONAL EXPERIENCE</a></li>
+  <li><a href="#curriculum-training-materials-and-documentation">CURRICULUM, TRAINING MATERIALS AND DOCUMENTATION</a></li>
+  <li><a href="#selected-training-and-capacity-building-delivery">SELECTED TRAINING AND CAPACITY-BUILDING DELIVERY</a></li>
+  <li><a href="#publications">PUBLICATIONS</a></li>
+  <li><a href="#conference-engagement">CONFERENCE ENGAGEMENT</a></li>
+  <li><a href="#fellowships-certifications-and-committees">FELLOWSHIPS, CERTIFICATIONS AND COMMITTEES</a></li>
+</ul>
+</nav>
 <p class="actions">
   <a href="Deepa_Palaniappan_CV_2026.pdf">Download CV (PDF, 3 pages)</a>
 </p>
 <section aria-labelledby="profile">
 <h2 id="profile">PROFILE</h2>
-<p>Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Assistant Professor at Azim Premji University; consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank; and State Disability Consultant to the Governments of Bihar, Odisha and Tamil Nadu. Work spans policy drafting and analysis, research and documentation, curriculum and training-material development, and capacity building of government officers and institutional cadres. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility.</p>
+<p>Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Named contributor to the WHO Global Report on Health Equity for Persons with Disabilities (2022). Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020, and is currently one of two members of the committee drafting the Tamil Nadu State Disability Policy. Assistant Professor at Azim Premji University, and consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility, and founder of the Disability Rights Repository and EquitableDocs initiatives.</p>
 </section>
 <section aria-labelledby="education">
 <h2 id="education">EDUCATION</h2>
@@ -72,10 +102,15 @@
 </section>
 <section aria-labelledby="areas-of-expertise">
 <h2 id="areas-of-expertise">AREAS OF EXPERTISE</h2>
-<ul class="grid" role="list">
+<ul class="exp" role="list">
+<li><details><summary>Disability policy: drafting, analysis and review</summary><ul>
+<li>Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020.</li>
+<li>Member, two-person committee drafting the Tamil Nadu State Disability Policy (2026).</li>
+<li>Drafted a CBR policy and implementation inputs for the World Bank TN RIGHTS project.</li>
+<li>Analysed disability inclusion in national health and disability policies for the <a href="https://www.who.int/publications/i/item/9789240063600">WHO Global Report (2022)</a>, and compiled UN OHCHR policy on leprosy and disability rights.</li>
+</ul></details></li>
 <li>Disability-inclusive development and mainstreaming</li>
-<li>Disability policy drafting, analysis and review</li>
-<li>Accessibility: digital, document and built environment</li>
+<li>Accessibility: digital, document and built-environment</li>
 <li>Assistive technology solutions and advisory</li>
 <li>Training, capacity building and curriculum development</li>
 <li>Research, documentation and report writing</li>
@@ -83,6 +118,13 @@
 <li>Multi-stakeholder and inter-governmental coordination</li>
 <li>Large public-events accessibility planning and implementation</li>
 <li>Disability data, informatics and standards (Bureau of Indian Standards)</li>
+</ul>
+</section>
+<section aria-labelledby="initiatives">
+<h2 id="initiatives">INITIATIVES</h2>
+<ul>
+<li><strong>Disability Rights Repository.</strong> <a href="https://disability-rights-repository.org">disability-rights-repository.org</a>. Developed and maintains a web portal that builds the documentation capabilities of organisations of persons with disabilities, OPD leaders and patient advocates, and creates visibility for community-based grassroots practitioners.</li>
+<li><strong>EquitableDocs.</strong> <a href="https://equitabledocs.org">equitabledocs.org</a>. Founder of a document equity initiative providing accessible-document remediation for students at no cost and capacity-building partnerships for universities, with a Global South focus.</li>
 </ul>
 </section>
 <section aria-labelledby="professional-experience">
@@ -178,7 +220,6 @@
 <li>Co-authored a situational study on inclusive curriculum in Government Industrial Training Institutes (UNICEF-sponsored publication).</li>
 <li>Named contributor, <a href="https://www.who.int/publications/i/item/9789240063600">WHO Global Report on Health Equity for Persons with Disabilities (2022)</a>.</li>
 <li>Drafted a CBR policy and implementation inputs for the World Bank TN RIGHTS project; member of the committee drafting the Tamil Nadu State Disability Policy (2026).</li>
-<li>Developed and maintains a documentation and capacity-building web portal for practitioners and advocates (<a href="https://disability-rights-repository.org">disability-rights-repository.org</a>).</li>
 <li>Designed disability-orientation and sensitisation curricula delivered to government staff across Bihar, Odisha and Jharkhand.</li>
 <li>Authored research reports for UN OHCHR (leprosy and disability rights, Global South focus) and analytical inputs for WHO on disability inclusion in national policies.</li>
 </ul>

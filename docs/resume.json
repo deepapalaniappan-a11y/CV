@@ -6,7 +6,7 @@
     "email": "deepa.palaniappan@gmail.com",
     "phone": "+91 9110041713",
     "url": "https://disability-rights-repository.org",
-    "summary": "Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Assistant Professor at Azim Premji University; consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank; and State Disability Consultant to the Governments of Bihar, Odisha and Tamil Nadu. Work spans policy drafting and analysis, research and documentation, curriculum and training-material development, and capacity building of government officers and institutional cadres. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility.",
+    "summary": "Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Named contributor to the WHO Global Report on Health Equity for Persons with Disabilities (2022). Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020, and is currently one of two members of the committee drafting the Tamil Nadu State Disability Policy. Assistant Professor at Azim Premji University, and consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility, and founder of the Disability Rights Repository and EquitableDocs initiatives.",
     "location": {
       "address": "Bangalore, India"
     },
@@ -190,13 +190,13 @@
   ],
   "skills": [
     {
+      "name": "Disability policy: drafting, analysis and review"
+    },
+    {
       "name": "Disability-inclusive development and mainstreaming"
     },
     {
-      "name": "Disability policy drafting, analysis and review"
-    },
-    {
-      "name": "Accessibility: digital, document and built environment"
+      "name": "Accessibility: digital, document and built-environment"
     },
     {
       "name": "Assistive technology solutions and advisory"

@@ -104,6 +104,14 @@ def parse(text):
             if cur['kind'] == 'profile':
                 cur['items'].append(s)
             continue
+        if cur['kind'] == 'skills':
+            indent = len(raw) - len(raw.lstrip(' '))
+            if indent >= 2 and cur['items']:
+                cur['items'][-1]['details'].append(body)
+            else:
+                cur['items'].append({'term': body, 'vis': vis,
+                                     'details': []})
+            continue
         if cur['kind'] == 'experience' and cur['items'] \
                 and isinstance(cur['items'][-1], dict) \
                 and 'bullets' in cur['items'][-1]:
@@ -175,6 +183,9 @@ def visible(sections, allow):
                 if it[1] in allow:
                     items.append(it)
             elif 'note' in it:
+                if it['vis'] in allow:
+                    items.append(it)
+            elif 'term' in it:
                 if it['vis'] in allow:
                     items.append(it)
             else:  # role
@@ -292,7 +303,7 @@ def build_docx(meta, sections, out_path):
             for ptxt in sx['items']:
                 run(para(sa=2), ptxt, size=10.5)
         elif sx['kind'] == 'skills':
-            items = [t for t, _ in sx['items']]
+            items = [it['term'] for it in sx['items']]
             for i in range(0, len(items), 2):
                 pair = items[i:i + 2]
                 pp = doc.add_paragraph()
@@ -365,7 +376,8 @@ def build_resume_json(meta, sections, out_path):
             awards = [{'title': strip_md(it[0])} for it in sx['items']
                       if isinstance(it, tuple)]
         elif sx['kind'] == 'skills':
-            skills = [{'name': strip_md(t)} for t, _ in sx['items']]
+            skills = [{'name': strip_md(it['term'])}
+                      for it in sx['items']]
     data = {'$schema': 'https://raw.githubusercontent.com/jsonresume/'
             'resume-schema/v1.0.0/schema.json',
             'basics': basics, 'work': work, 'education': education,
@@ -409,15 +421,26 @@ def build_html(meta, sections, out_path):
     name = html.escape(meta.get('name', ''))
     headline = html.escape(meta.get('headline', ''))
     body = []
+    toc = []
     for sx in sections:
         sid = re.sub(r'[^a-z0-9]+', '-', sx['title'].lower()).strip('-')
+        toc.append((sx['title'], sid))
         body.append(f'<section aria-labelledby="{sid}">')
         body.append(f'<h2 id="{sid}">{html.escape(sx["title"])}</h2>')
         if sx['kind'] == 'profile':
             body += [f'<p>{html.escape(p)}</p>' for p in sx['items']]
         elif sx['kind'] == 'skills':
-            body.append('<ul class="grid" role="list">')
-            body += [f'<li>{html.escape(t)}</li>' for t, _ in sx['items']]
+            body.append('<ul class="exp" role="list">')
+            for it in sx['items']:
+                term = html.escape(it['term'])
+                if it.get('details'):
+                    body.append('<li><details><summary>'
+                                f'{term}</summary><ul>')
+                    body += [f'<li>{inline_html(d)}</li>'
+                             for d in it['details']]
+                    body.append('</ul></details></li>')
+                else:
+                    body.append(f'<li>{term}</li>')
             body.append('</ul>')
         elif sx['kind'] == 'experience':
             for it in sx['items']:
@@ -447,6 +470,13 @@ def build_html(meta, sections, out_path):
                 body.append(f'<p class="note">{html.escape(note)}</p>')
         body.append('</section>')
 
+    toc_links = '\n'.join(
+        f'  <li><a href="#{sid}">{html.escape(t)}</a></li>'
+        for t, sid in toc)
+    nav_html = ('<nav class="toc" aria-labelledby="toc-h">\n'
+                '<h2 id="toc-h">On this page</h2>\n<ul>\n'
+                f'{toc_links}\n</ul>\n</nav>')
+
     doc = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -463,25 +493,36 @@ def build_html(meta, sections, out_path):
   .skip {{ position:absolute; left:-999px; top:0; background:#fde68a;
     color:#78350f; padding:.6rem 1rem; }}
   .skip:focus {{ left:0; }}
-  main {{ max-width:54rem; margin:0 auto; padding:2.2rem 1.4rem 4rem; }}
+  main {{ max-width:48rem; margin:0 auto; padding:2.2rem 1.4rem 4rem; }}
   header.cv {{ text-align:center; border-bottom:3px solid var(--ink);
     padding-bottom:1rem; margin-bottom:1.4rem; }}
   h1 {{ font-size:2.2rem; margin:.2rem 0; }}
   .headline {{ color:var(--accent); font-weight:700; }}
   .contact {{ color:var(--muted); font-size:.95rem; margin-top:.5rem; }}
-  h2 {{ font-size:1.15rem; text-transform:uppercase; letter-spacing:.04em;
-    border-bottom:1px solid var(--rule); padding-bottom:.25rem;
-    margin:2rem 0 .8rem; }}
+  h2 {{ font-size:1.3rem; border-bottom:1px solid var(--rule);
+    padding-bottom:.25rem; margin:2.4rem 0 .8rem;
+    scroll-margin-top:.5rem; }}
   h3 {{ font-size:1rem; margin:1rem 0 .15rem; }}
   .dates {{ color:var(--muted); font-size:.9rem; font-style:italic;
     margin:.1rem 0 .4rem; }}
   ul {{ margin:.3rem 0 .6rem; padding-left:1.2rem; }}
   li {{ margin:.25rem 0; }}
-  ul.grid {{ list-style:none; padding:0; display:grid;
-    grid-template-columns:1fr 1fr; gap:.2rem .8rem; }}
-  ul.grid li {{ padding-left:1.1rem; position:relative; }}
-  ul.grid li::before {{ content:"\\2022"; position:absolute; left:0;
+  ul.exp {{ list-style:none; padding:0; }}
+  ul.exp > li {{ margin:.35rem 0; }}
+  details {{ border-bottom:1px solid var(--rule); padding:.1rem 0; }}
+  summary {{ cursor:pointer; font-weight:600; padding:.5rem 0;
     color:var(--accent); }}
+  summary:focus-visible {{ outline:3px solid #78350f;
+    background:#fde68a; color:#0b0c0c; }}
+  details[open] summary {{ margin-bottom:.2rem; }}
+  details ul {{ margin:.2rem 0 .6rem; }}
+  nav.toc {{ border:1px solid var(--rule); border-radius:.4rem;
+    padding:.6rem 1rem; margin:0 0 1.8rem; background:#f8f9fb; }}
+  nav.toc h2 {{ border:0; margin:.2rem 0 .5rem; font-size:1rem;
+    padding:0; }}
+  nav.toc ul {{ list-style:none; padding:0; margin:0; display:flex;
+    flex-wrap:wrap; gap:.35rem 1.1rem; }}
+  nav.toc li {{ margin:0; }}
   .note {{ color:var(--muted); font-style:italic; font-size:.92rem; }}
   a {{ color:var(--accent); }}
   a:focus-visible {{ outline:3px solid #78350f; background:#fde68a;
@@ -490,9 +531,13 @@ def build_html(meta, sections, out_path):
   .actions a {{ display:inline-block; border:1px solid var(--accent);
     padding:.4rem .9rem; border-radius:.3rem; text-decoration:none;
     font-size:.95rem; }}
-  @media (max-width:560px) {{ ul.grid {{ grid-template-columns:1fr; }} }}
-  @media print {{ .skip,.actions {{ display:none; }} a {{ color:var(--ink);
-    text-decoration:none; }} body {{ font-size:10.5pt; }} }}
+  @media (prefers-reduced-motion: reduce) {{ * {{ animation:none !important;
+    transition:none !important; }} }}
+  @media print {{ .skip,.actions,nav.toc {{ display:none; }}
+    details > * {{ display:block; }}
+    summary {{ font-weight:700; color:var(--ink); }}
+    a {{ color:var(--ink); text-decoration:none; }}
+    body {{ font-size:10.5pt; }} }}
 </style>
 </head>
 <body>
@@ -503,6 +548,7 @@ def build_html(meta, sections, out_path):
   <p class="headline">{headline}</p>
   <p class="contact">{linkify_contact(meta.get('contact', ''))}</p>
 </header>
+{nav_html}
 <p class="actions">
   <a href="Deepa_Palaniappan_CV_2026.pdf">Download CV (PDF, 3 pages)</a>
 </p>

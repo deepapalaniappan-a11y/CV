@@ -36,7 +36,7 @@
 @contact: deepa.palaniappan@gmail.com · +91 9110041713 · Bangalore, India · disability-rights-repository.org · bit.ly/CV-Deepa
 
 ## PROFILE
-Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Assistant Professor at Azim Premji University; consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank; and State Disability Consultant to the Governments of Bihar, Odisha and Tamil Nadu. Work spans policy drafting and analysis, research and documentation, curriculum and training-material development, and capacity building of government officers and institutional cadres. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility.
+Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Named contributor to the WHO Global Report on Health Equity for Persons with Disabilities (2022). Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020, and is currently one of two members of the committee drafting the Tamil Nadu State Disability Policy. Assistant Professor at Azim Premji University, and consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility, and founder of the Disability Rights Repository and EquitableDocs initiatives.
 
 ## EDUCATION
 - **Mid-career Master’s in Development Studies,** Graduate Institute Geneva (IHEID), full scholarship, 2019 to 2021. Thesis: case study on the National Rural Livelihoods Mission and disability inclusion.
@@ -45,16 +45,24 @@ Disability inclusion, accessibility and policy professional with over a decade o
 - **PG Diploma in Special Education (Neurological Disorders and Multiple Disabilities),** University of Delhi.
 
 ## AREAS OF EXPERTISE
+- Disability policy: drafting, analysis and review
+  - Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020.
+  - Member, two-person committee drafting the Tamil Nadu State Disability Policy (2026).
+  - Drafted a CBR policy and implementation inputs for the World Bank TN RIGHTS project.
+  - Analysed disability inclusion in national health and disability policies for the [WHO Global Report (2022)](https://www.who.int/publications/i/item/9789240063600), and compiled UN OHCHR policy on leprosy and disability rights.
 - Disability-inclusive development and mainstreaming
-- Disability policy drafting, analysis and review
-- Accessibility: digital, document and built environment
+- Accessibility: digital, document and built-environment
 - Assistive technology solutions and advisory
 - Training, capacity building and curriculum development
 - Research, documentation and report writing
 - Reasonable accommodation and legal frameworks
 - Multi-stakeholder and inter-governmental coordination
-+ Large public-events accessibility planning and implementation
-+ Disability data, informatics and standards (Bureau of Indian Standards)
+- Large public-events accessibility planning and implementation
+- Disability data, informatics and standards (Bureau of Indian Standards)
+
+## INITIATIVES
+- **Disability Rights Repository.** [disability-rights-repository.org](https://disability-rights-repository.org). Developed and maintains a web portal that builds the documentation capabilities of organisations of persons with disabilities, OPD leaders and patient advocates, and creates visibility for community-based grassroots practitioners.
+- **EquitableDocs.** [equitabledocs.org](https://equitabledocs.org). Founder of a document equity initiative providing accessible-document remediation for students at no cost and capacity-building partnerships for universities, with a Global South focus.
 
 ## PROFESSIONAL EXPERIENCE
 ### Assistant Professor, then Consultant @@ Office of Disability Inclusion, Azim Premji University @@ Assistant Professor Dec 2022 to Jul 2025; Consultant Jul 2025 to present
@@ -96,7 +104,6 @@ Disability inclusion, accessibility and policy professional with over a decade o
 - Co-authored a situational study on inclusive curriculum in Government Industrial Training Institutes (UNICEF-sponsored publication).
 - Named contributor, [WHO Global Report on Health Equity for Persons with Disabilities (2022)](https://www.who.int/publications/i/item/9789240063600).
 - Drafted a CBR policy and implementation inputs for the World Bank TN RIGHTS project; member of the committee drafting the Tamil Nadu State Disability Policy (2026).
-- Developed and maintains a documentation and capacity-building web portal for practitioners and advocates ([disability-rights-repository.org](https://disability-rights-repository.org)).
 + Designed disability-orientation and sensitisation curricula delivered to government staff across Bihar, Odisha and Jharkhand.
 + Authored research reports for UN OHCHR (leprosy and disability rights, Global South focus) and analytical inputs for WHO on disability inclusion in national policies.
 
