@@ -20,6 +20,7 @@ from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+from docx.opc.constants import RELATIONSHIP_TYPE
 
 HERE = Path(__file__).parent
 SRC = HERE / 'MASTER-CV.md'
@@ -88,9 +89,12 @@ def parse(text):
                 vis, body = 'web', body[2:].strip()
             elif body.startswith('~ '):
                 vis, body = 'pdf', body[2:].strip()
-            head, dates = (body.split(' @@ ', 1) + [''])[:2]
-            cur['items'].append({'role': head.strip(), 'dates': dates.strip(),
-                                 'vis': vis, 'bullets': []})
+            bits = [x.strip() for x in body.split(' @@ ')]
+            cur['items'].append({
+                'role': bits[0] if bits else '',
+                'org': bits[1] if len(bits) > 1 else '',
+                'dates': bits[2] if len(bits) > 2 else '',
+                'vis': vis, 'bullets': []})
             continue
         if s.startswith('> '):
             cur['items'].append({'note': s[2:].strip(), 'vis': 'pdf'})
@@ -131,6 +135,31 @@ def bold_spans(text):
             out.append((part, bold))
         bold = not bold
     return out or [(text, False)]
+
+
+LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+
+
+def inline_tokens(text):
+    """Split text into (text, is_bold, href_or_None) runs.
+
+    Supports **bold** and [label](url) markdown so one source file can
+    produce links in Word, PDF and HTML.
+    """
+    tokens, pos = [], 0
+    for m in LINK_RE.finditer(text):
+        if m.start() > pos:
+            tokens += [(t, b, None) for t, b in bold_spans(text[pos:m.start()])]
+        tokens.append((m.group(1), False, m.group(2)))
+        pos = m.end()
+    if pos < len(text):
+        tokens += [(t, b, None) for t, b in bold_spans(text[pos:])]
+    return tokens or [(text, False, None)]
+
+
+def strip_md(text):
+    """Plain text for JSON: drop link syntax and bold markers."""
+    return LINK_RE.sub(r'\1', text).replace('**', '')
 
 
 def visible(sections, allow):
@@ -207,6 +236,30 @@ def build_docx(meta, sections, out_path):
         bdr.append(b)
         pPr.append(bdr)
 
+    def add_link(p, url, text, size=10.5):
+        r_id = p.part.relate_to(url, RELATIONSHIP_TYPE.HYPERLINK,
+                                is_external=True)
+        link = OxmlElement('w:hyperlink')
+        link.set(qn('r:id'), r_id)
+        r = OxmlElement('w:r')
+        rPr = OxmlElement('w:rPr')
+        col = OxmlElement('w:color')
+        col.set(qn('w:val'), '1E40AF')
+        rPr.append(col)
+        und = OxmlElement('w:u')
+        und.set(qn('w:val'), 'single')
+        rPr.append(und)
+        szc = OxmlElement('w:sz')
+        szc.set(qn('w:val'), str(int(size * 2)))
+        rPr.append(szc)
+        r.append(rPr)
+        t = OxmlElement('w:t')
+        t.set('{http://www.w3.org/XML/1998/namespace}space', 'preserve')
+        t.text = text
+        r.append(t)
+        link.append(r)
+        p._p.append(link)
+
     def bullet(text, sa=2):
         p = doc.add_paragraph()
         pf = p.paragraph_format
@@ -217,10 +270,13 @@ def build_docx(meta, sections, out_path):
         pf.first_line_indent = Inches(-0.16)
         rb = p.add_run('•  ')
         rb.font.size = Pt(10.5)
-        for t, b in bold_spans(text):
-            r = p.add_run(t)
-            r.font.size = Pt(10.5)
-            r.bold = b
+        for t, b, href in inline_tokens(text):
+            if href:
+                add_link(p, href, t)
+            else:
+                r = p.add_run(t)
+                r.font.size = Pt(10.5)
+                r.bold = b
 
     p = para(sa=1, align=WD_ALIGN_PARAGRAPH.CENTER)
     run(p, meta.get('name', ''), size=20, bold=True, color=NAVY)
@@ -255,9 +311,11 @@ def build_docx(meta, sections, out_path):
             for it in sx['items']:
                 run(para(sa=1, sb=5), it['role'], size=10.5, bold=True,
                     color=NAVY)
-                if it['dates']:
-                    run(para(sa=2), it['dates'], size=9, italic=True,
-                        color=MUTED)
+                meta_bits = [x for x in (it.get('org', ''),
+                                         it.get('dates', '')) if x]
+                if meta_bits:
+                    run(para(sa=2), '  ·  '.join(meta_bits), size=9,
+                        italic=True, color=MUTED)
                 for b, _ in it['bullets']:
                     bullet(b)
         else:
@@ -292,23 +350,22 @@ def build_resume_json(meta, sections, out_path):
             basics['summary'] = ' '.join(sx['items'])
         elif sx['kind'] == 'experience':
             for it in sx['items']:
-                pos, name = (it['role'].split(' — ', 1) + [''])[:2] \
-                    if ' — ' in it['role'] else ('', it['role'])
-                work.append({'name': name, 'position': pos,
-                             'description': it['dates'],
-                             'highlights': [b for b, _ in it['bullets']]})
+                work.append({'name': strip_md(it.get('org', '')),
+                             'position': strip_md(it['role']),
+                             'description': it.get('dates', ''),
+                             'highlights': [strip_md(b)
+                                            for b, _ in it['bullets']]})
         elif 'EDUCATION' in up:
-            education = [{'institution': re.sub(r'\*\*', '', t)}
-                         for t, _ in sx['items']]
+            education = [{'institution': strip_md(it[0])}
+                         for it in sx['items'] if isinstance(it, tuple)]
         elif 'PUBLICATION' in up:
-            publications = [{'name': t} for t, _ in sx['items']
-                            if isinstance(t, str) or True
-                            if not isinstance(_, dict)]
+            publications = [{'name': strip_md(it[0])}
+                            for it in sx['items'] if isinstance(it, tuple)]
         elif 'FELLOWSHIP' in up or 'CERTIF' in up or 'COMMITTEE' in up:
-            awards = [{'title': t} for it in sx['items']
-                      if isinstance(it, tuple) for t in [it[0]]]
+            awards = [{'title': strip_md(it[0])} for it in sx['items']
+                      if isinstance(it, tuple)]
         elif sx['kind'] == 'skills':
-            skills = [{'name': t} for t, _ in sx['items']]
+            skills = [{'name': strip_md(t)} for t, _ in sx['items']]
     data = {'$schema': 'https://raw.githubusercontent.com/jsonresume/'
             'resume-schema/v1.0.0/schema.json',
             'basics': basics, 'work': work, 'education': education,
@@ -336,8 +393,16 @@ def linkify_contact(contact):
 
 
 def inline_html(text):
-    return ''.join((f'<strong>{html.escape(t)}</strong>' if b
-                    else html.escape(t)) for t, b in bold_spans(text))
+    out = []
+    for t, b, href in inline_tokens(text):
+        esc = html.escape(t)
+        if href:
+            out.append(f'<a href="{html.escape(href)}">{esc}</a>')
+        elif b:
+            out.append(f'<strong>{esc}</strong>')
+        else:
+            out.append(esc)
+    return ''.join(out)
 
 
 def build_html(meta, sections, out_path):
@@ -351,16 +416,18 @@ def build_html(meta, sections, out_path):
         if sx['kind'] == 'profile':
             body += [f'<p>{html.escape(p)}</p>' for p in sx['items']]
         elif sx['kind'] == 'skills':
-            body.append('<ul class="grid">')
+            body.append('<ul class="grid" role="list">')
             body += [f'<li>{html.escape(t)}</li>' for t, _ in sx['items']]
             body.append('</ul>')
         elif sx['kind'] == 'experience':
             for it in sx['items']:
                 body.append('<article class="role">')
                 body.append(f'<h3>{inline_html(it["role"])}</h3>')
-                if it['dates']:
-                    body.append(f'<p class="dates">'
-                                f'{html.escape(it["dates"])}</p>')
+                meta_bits = [html.escape(x) for x in
+                             (it.get('org', ''), it.get('dates', '')) if x]
+                if meta_bits:
+                    body.append('<p class="dates">'
+                                + ' &middot; '.join(meta_bits) + '</p>')
                 if it['bullets']:
                     body.append('<ul>')
                     body += [f'<li>{inline_html(b)}</li>'
@@ -385,7 +452,7 @@ def build_html(meta, sections, out_path):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{name} — CV</title>
+<title>{name} CV</title>
 <meta name="description" content="{headline}">
 <style>
   :root {{ --ink:#0b0c0c; --muted:#4b5563; --accent:#1e40af; --rule:#d1d5db; }}
