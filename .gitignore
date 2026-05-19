@@ -1,11 +1,16 @@
-# Word lock / temp files
+# Word lock / temp / scratch
 ~$*
 *.tmp
-
-# Scratch renders and previews
 _*.png
 
-# Private working files: never publish these
+# Build pipeline and source: kept local only.
+# The web CV is now authored in Claude Design and handed off, not generated.
+MASTER-CV.md
+build_cv.py
+build.ps1
+PROCESS.md
+
+# Private working files: never publish
 Deepa_Palaniappan_CV_IIMC_Training_Associate.*
 Deepa Palaniappan April 2026.pdf
 *_TAILORED_*.docx
@@ -14,10 +19,10 @@ DECISIONS-AND-HISTORY.md
 Final CVs/
 CV design/
 CV design- new claude pdfs/
+Claude Design Handover Files/
 
-# Public repo keeps only the system files and ONE online CV PDF.
-# Ignore every PDF, Word doc and zip, then re-include the single web PDF.
+# Public repo holds only the Claude Design web bundle under docs/.
+# Ignore stray PDFs, Word docs and zips anywhere.
 *.pdf
 *.docx
 *.zip
-!docs/Deepa_Palaniappan_CV_2026.pdf
