@@ -51,14 +51,41 @@ Disability inclusion, accessibility and policy professional with over a decade o
   - Drafted a CBR policy and implementation inputs for the World Bank TN RIGHTS project.
   - Analysed disability inclusion in national health and disability policies for the [WHO Global Report (2022)](https://www.who.int/publications/i/item/9789240063600), and compiled UN OHCHR policy on leprosy and disability rights.
 - Disability-inclusive development and mainstreaming
+  - Mainstreamed disability across the JEEVIKA / Bihar State Rural Livelihoods Mission.
+  - Disability inclusion across the Odisha Livelihoods Mission and the Sightsavers and BRLPS partnership.
+  - Built convergence channels with state and central government departments.
 - Accessibility: digital, document and built-environment
+  - Document remediation: complex PDFs, Adobe InDesign, Word, Excel and PowerPoint.
+  - Built-environment accessibility: Technical Committee, Purple Building Certification Scheme; NITS and BIS course.
+  - Accessibility planning and delivery for international symposia at BITS Pilani Hyderabad and NIT Rourkela.
 - Assistive technology solutions and advisory
+  - Jury member for assistive technology innovation pitches at hackathons organised by KIHT and AMTZ, two editions.
+  - Resource person and pre-conference workshop facilitator on assistive technology, Accessible by Design Symposium, BITS Pilani Hyderabad.
+  - IAAP CPACC; six-month Certificate Programme in Assistive Technology, NISH Trivandrum.
+  - Advisory on assistive technology across visual, hearing, mobility, cognitive and communication needs.
 - Training, capacity building and curriculum development
+  - Trained district, block and state government officers across Bihar, Odisha and Jharkhand.
+  - Faculty development and university teaching; IGNOU workshop for Registrars and Section Officers.
+  - Curriculum: ITI inclusive-curriculum study; training modules and session plans.
 - Research, documentation and report writing
+  - Named contributor, [WHO Global Report on Health Equity for Persons with Disabilities (2022)](https://www.who.int/publications/i/item/9789240063600).
+  - Research report for UN OHCHR on leprosy and disability rights, Global South focus.
+  - Peer-reviewed publications and book chapters; the Disability Rights Repository portal.
 - Reasonable accommodation and legal frameworks
+  - Reasonable-accommodation and accessibility interventions across Azim Premji University.
+  - Legal-frameworks expertise applied in disability policy drafting and reviews.
+  - RBI inclusive-banking guidance training for bank managers.
 - Multi-stakeholder and inter-governmental coordination
+  - Convened a CBR core group of experts and practitioners; facilitated stakeholder consultations.
+  - Coordinated WHO stakeholder consultations, including sign-language interpretation.
+  - Built convergence across state and central government departments.
 - Large public-events accessibility planning and implementation
+  - Event Accessibility Lead, Accessible by Design International Symposium, BITS Pilani Hyderabad (2025).
+  - Resource person and coordinator, Smart Mobility symposium and workshop, NIT Rourkela (2025).
+  - Accessibility planning across national and international conferences.
 - Disability data, informatics and standards (Bureau of Indian Standards)
+  - Member, Disability Informatics Sub-Committee, Bureau of Indian Standards, Government of India.
+  - Technical Committee, Purple Building Certification Scheme (accessibility rating standards).
 
 ## INITIATIVES
 - **Disability Rights Repository.** [disability-rights-repository.org](https://disability-rights-repository.org). Developed and maintains a web portal that builds the documentation capabilities of organisations of persons with disabilities, OPD leaders and patient advocates, and creates visibility for community-based grassroots practitioners.
