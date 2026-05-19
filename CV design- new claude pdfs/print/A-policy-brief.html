@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deepa Palaniappan - CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E6;
+    --paper-edge:#EBE3D2;
+    --ink:#1A1614;
+    --ink-2:#3B342E;
+    --ink-3:#6E6358;
+    --rule:#C9BFAC;
+    --hair:#D7CDB9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:#E7DFCC;color:var(--ink);font-family:"Source Serif 4", Georgia, serif;font-feature-settings:"liga","onum","ss01";-webkit-font-smoothing:antialiased}
+  body{padding:24px 0}
+  .stack{display:flex;flex-direction:column;align-items:center;gap:24px}
+  .page{
+    width:210mm;min-height:297mm;
+    background:var(--paper);
+    padding:14mm 18mm 12mm;
+    position:relative;
+    box-shadow:0 1px 0 #fff inset, 0 30px 60px -30px rgba(40,30,15,.35), 0 8px 24px -12px rgba(40,30,15,.25);
+  }
+  .page::before{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid var(--paper-edge);}
+  /* Header --------------------------------------------------------------*/
+  .crest{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1.5px solid var(--ink);padding-bottom:5mm;margin-bottom:6mm;}
+  .crest .name{font-family:"Source Serif 4";font-weight:600;font-size:26pt;line-height:1;letter-spacing:-.005em;}
+  .crest .name em{font-style:italic;font-weight:300;color:var(--ink-2)}
+  .crest .meta{font-family:"IBM Plex Mono";font-size:7.5pt;line-height:1.5;text-align:right;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em}
+  .crest .meta b{color:var(--ink);font-weight:500}
+  .tagline{font-family:"IBM Plex Mono";font-size:7.5pt;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:-2mm 0 5mm;}
+  /* Section --------------------------------------------------------------*/
+  section{margin-bottom:4mm}
+  h2{
+    font-family:"IBM Plex Mono";font-weight:500;font-size:7.5pt;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--ink);
+    margin:0 0 2.5mm; padding-bottom:1.2mm;
+    border-bottom:.5px solid var(--rule);
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  h2 .num{color:var(--ink-3);font-weight:400}
+  p,li{font-size:9.5pt;line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+  p{margin:0 0 2mm}
+  .entry .what ul.bullets{margin:1mm 0 0;padding-left:4mm;list-style:none}
+  .entry .what ul.bullets li{font-size:9pt;line-height:1.4;color:var(--ink-2);margin-bottom:.5mm;position:relative;padding-left:0}
+  .entry .what ul.bullets li::before{content:"-";position:absolute;left:-4mm;color:var(--ink-3)}
+  .lead{font-size:10.5pt;line-height:1.5;color:var(--ink);font-weight:400}
+  /* Highlights grid ------------------------------------------------------*/
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm 6mm;margin-top:1.5mm}
+  .pillar{padding:2mm 0 0;border-top:.5px solid var(--hair);}
+  .pillar .k{font-family:"IBM Plex Mono";font-size:7pt;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:1mm}
+  .pillar .v{font-size:9pt;line-height:1.35;color:var(--ink);font-weight:500}
+  .pillar .v em{color:var(--ink-2);font-style:italic;font-weight:400}
+  /* Entry list -----------------------------------------------------------*/
+  .entries{display:flex;flex-direction:column;gap:2.5mm}
+  .entry{display:grid;grid-template-columns:28mm 1fr;gap:5mm;align-items:baseline}
+  .entry .when{font-family:"IBM Plex Mono";font-size:7.25pt;letter-spacing:.04em;color:var(--ink-3);line-height:1.4;text-transform:uppercase}
+  .entry .what{font-size:9.5pt;line-height:1.45;color:var(--ink-2)}
+  .entry .what .role{color:var(--ink);font-weight:600}
+  .entry .what .org{font-style:italic;color:var(--ink)}
+  .entry .what .role::after{content:" / ";color:var(--ink-3);font-weight:400}
+  .entry .what p{margin:.6mm 0 0;font-size:9pt;color:var(--ink-2)}
+  /* Two-col bullet lists -------------------------------------------------*/
+  .two-col{column-count:2;column-gap:7mm;column-rule:.5px solid var(--hair)}
+  .two-col ol{margin:0;padding-left:4.5mm}
+  .two-col ol li{font-size:8.75pt;line-height:1.35;margin-bottom:1.4mm;break-inside:avoid;color:var(--ink-2)}
+  .two-col ol li b{color:var(--ink);font-weight:600}
+  /* Earlier-roles compact list ------------------------------------------*/
+  .earlier-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.4mm}
+  .earlier-list li{display:grid;grid-template-columns:18mm 1fr;gap:3mm;font-size:8.75pt;line-height:1.35;color:var(--ink-2);padding-top:.8mm;border-top:.5px solid var(--hair)}
+  .earlier-list li:first-child{border-top:none;padding-top:0}
+  .earlier-list li .yr{font-family:"IBM Plex Mono";font-size:7pt;color:var(--ink-3);font-weight:500;letter-spacing:.04em;text-transform:uppercase;line-height:1.55}
+  .earlier-list li b{color:var(--ink);font-weight:600}
+  .earlier-label{display:block;color:var(--ink-3);font-weight:500;font-family:"IBM Plex Mono";font-size:7pt;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.5mm}
+  /* Folio ----------------------------------------------------------------*/
+  .folio{position:absolute;left:18mm;right:18mm;bottom:7mm;display:flex;justify-content:space-between;align-items:baseline;font-family:"IBM Plex Mono";font-size:6.75pt;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);border-top:.5px solid var(--hair);padding-top:1.5mm}
+  .folio b{color:var(--ink);font-weight:500}
+  /* Drop ornament --------------------------------------------------------*/
+  .ornament{display:flex;align-items:center;gap:6mm;margin:0 0 6mm}
+  .ornament .bar{flex:1;height:1px;background:var(--rule)}
+  .ornament .glyph{font-family:"Source Serif 4";font-style:italic;font-weight:400;font-size:10pt;color:var(--ink-3)}
+  /* Save-as-PDF button (screen only) ------------------------------------*/
+  .pdf-btn{position:fixed;right:24px;bottom:24px;z-index:50;background:var(--ink);color:var(--paper);border:0;border-radius:8px;padding:12px 18px;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;cursor:pointer;box-shadow:0 8px 24px -8px rgba(40,30,15,.4);display:flex;align-items:center;gap:8px}
+  .pdf-btn:hover{background:#000}
+  .pdf-btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  @media print{.pdf-btn{display:none}}
+  /* Print ----------------------------------------------------------------*/
+  @page{size:A4;margin:0}
+  @media print{
+    html,body{background:#fff}
+    body{padding:0}
+    .stack{gap:0}
+    .page{box-shadow:none;width:210mm;height:297mm;min-height:297mm;max-height:297mm;overflow:hidden;page-break-after:always;break-after:page}
+    .page:last-child{page-break-after:auto;break-after:auto}
+    .page::before{display:none}
+    .pdf-btn{display:none !important}
+  }
+  /* Skip link & a11y -----------------------------------------------------*/
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{position:fixed;left:12px;top:12px;background:var(--ink);color:var(--paper);padding:8px 14px;font-family:"IBM Plex Mono";font-size:11px;z-index:9}
+  a{color:inherit;text-decoration:underline;text-decoration-thickness:.5px;text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main" class="stack" aria-label="Curriculum Vitae">
+
+<!-- ============================== PAGE 1 ============================== -->
+<article class="page" aria-label="Page 1 - Executive Summary" data-screen-label="01 Executive Summary">
+  <header class="crest">
+    <div>
+      <div class="name">Deepa <em>Palaniappan</em></div>
+    </div>
+    <div class="meta">
+      <div><b>disability-rights-repository.org</b></div>
+      <div>equitabledocs.org</div>
+      <div>Bengaluru · India</div>
+    </div>
+  </header>
+  <div class="tagline">Disability inclusion · Accessibility · Policy &amp; research</div>
+
+  <section aria-label="Executive summary">
+    <h2><span>Executive summary</span><span class="num">§ 01</span></h2>
+    <p class="lead">I work in disability-inclusive development, with field grounding across India and policy assignments at international level. Currently Advisor - Inclusion, Systems &amp; Partnerships at <em>Snehadhara Foundation</em>, Bengaluru. Most recently completed a tenure as Assistant Professor then Consultant with the Office of Disability Inclusion at Azim Premji University (Dec 2022 - Mar 2026). Two assignments with the WHO Disability Unit in Geneva contributed to the <em>Global Report on Health Equity for Persons with Disabilities</em> (2022); World Bank work on the TN&nbsp;RIGHTS project supported the Government of Tamil&nbsp;Nadu; and an earlier posting in Bihar produced the State Disability Inclusion Guideline, in implementation since 2020.</p>
+  </section>
+
+  <section aria-label="Key pillars">
+    <h2><span>A few highlights</span><span class="num">§ 02</span></h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="k">Project</div>
+        <div class="v">Disability Rights Repository - <em>a small portal I maintain, to give visibility to community-based grassroots practitioners and support documentation by OPD leaders.</em></div>
+      </div>
+      <div class="pillar">
+        <div class="k">Initiative</div>
+        <div class="v">EquitableDocs · equitabledocs.org - <em>a non-commercial pipeline for accessible academic documents for the Global South. Check, repair, train. Free for individuals and government; cost-only for institutions.</em></div>
+      </div>
+      <div class="pillar">
+        <div class="k">Education</div>
+        <div class="v">Mid-career MA, Development Studies, Graduate Institute Geneva (full scholarship) - <em>MA &amp; MPhil Political Science, JNU New Delhi.</em></div>
+      </div>
+      <div class="pillar">
+        <div class="k">Earlier work</div>
+        <div class="v">Bihar State Disability Inclusion Guideline - <em>developed during my time as State Disability Consultant for JEEViKA; in implementation since August 2020.</em></div>
+      </div>
+      <div class="pillar" style="grid-column:1 / -1">
+        <div class="k">Certification</div>
+        <div class="v">IAAP Certified Professional in Accessibility Core Competencies (CPACC) - <em>and Disability Rights &amp; Accessibility certification, US Institute of Diplomacy &amp; Human Rights, Washington, DC.</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Current appointments">
+    <h2><span>Currently</span><span class="num">§ 03</span></h2>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">2024 - Present</div>
+        <div class="what"><span class="role">Advisor - Inclusion, Systems &amp; Partnerships</span><span class="org">Snehadhara Foundation, Bengaluru</span><p>Strengthening inclusion approaches within partner organisations; accessibility advisory across programmes, spaces and documentation; supporting proposal development, strategic planning and government-linked institutional partnerships.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">From Jan 2026</div>
+        <div class="what"><span class="role">Drafting committee member</span><span class="org">State Disability Policy, Govt. of Tamil&nbsp;Nadu - Department for the Welfare of Differently Abled</span><p>Two-member committee, onboarded 7 January 2026.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">Active</div>
+        <div class="what"><span class="role">Member, Disability Informatics Sub-Committee MHD&nbsp;17:3</span><span class="org">Bureau of Indian Standards - Medical Equipment &amp; Hospital Planning Division Council, Govt. of India</span></div>
+      </div>
+      <div class="entry">
+        <div class="when">Active</div>
+        <div class="what"><span class="role">Technical Committee member</span><span class="org">Purple Building Certification Scheme - accessibility rating for public buildings (launched April 2025)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Recent milestones" hidden>
+    <!-- Recent milestones moved to page 3 for fit -->
+  </section>
+
+  <div class="folio"><span><b>Deepa Palaniappan</b> · Curriculum vitae</span><span>Apr 2026</span><span>Page 1 / 3</span></div>
+</article>
+
+<!-- ============================== PAGE 2 ============================== -->
+<article class="page" aria-label="Page 2 - Experience" data-screen-label="02 Experience">
+  <div class="ornament"><span class="glyph">Full record · continued</span><span class="bar"></span></div>
+
+  <section aria-label="Selected experience">
+    <h2><span>Experience</span><span class="num">§ 05</span></h2>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">2024 - Present</div>
+        <div class="what"><span class="role">Advisor - Inclusion, Systems &amp; Partnerships</span><span class="org">Snehadhara Foundation, Bengaluru</span><p>Strengthening inclusion within partner organisations; accessibility advisory across programmes, spaces and documentation; proposal development, strategic planning and institutional partnerships.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">Dec 2022 - Mar 2026</div>
+        <div class="what"><span class="role">Assistant Professor, then Consultant</span><span class="org">Office of Disability Inclusion, Azim Premji University</span><p>Assistant Professor (Dec 2022 - Jul 2025); Consultant (Jul 2025 - Mar 2026).</p><ul class="bullets"><li>Initiated and developed the reasonable-accommodation process, and disability-inclusion and accessibility interventions across the University.</li><li>Designed and delivered training and faculty-development sessions; liaised with faculty, departments and external experts.</li></ul></div>
+      </div>
+      <div class="entry">
+        <div class="when">Aug 2023 - Dec 2023</div>
+        <div class="what"><span class="role">Consultant (2nd assignment)</span><span class="org">WHO HQ Disability Unit, Geneva</span><p>Review of WHO documents for disability inclusion components; supported the team with mapping of DPOs across countries, especially LMICs.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">Oct 2021 - Sep 2022</div>
+        <div class="what"><span class="role">Consultant</span><span class="org">WHO HQ Disability Unit, Geneva</span><p>Scoping review on health emergencies and disability inclusion, in support of the WHO <em>Global Report on Health Equity for Persons with Disabilities</em> (2022); coordinated ISL interpreters during stakeholder consultations.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2021 - 2022</div>
+        <div class="what"><span class="role">Consultant</span><span class="org">World Bank - TN RIGHTS, Govt. of Tamil&nbsp;Nadu</span><p>Initiated and facilitated a CBR core group toward a draft CBR policy submitted to the Government partner; supported the TN team on the CBR implementation plan and accessibility inputs to the project OMIP.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">May - Jun 2022</div>
+        <div class="what"><span class="role">UN OHCHR Consultant (short-term research)</span><span class="org">Mandate of the UN Special Rapporteur on the elimination of discrimination against persons affected by leprosy</span><p>Policy compilation and analysis on inclusion of leprosy-affected persons in global disability policy; submitted a research report on leprosy and disability rights in the Global South.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">Oct - Dec 2020</div>
+        <div class="what"><span class="role">Research Intern</span><span class="org">International Disability Alliance, Geneva · short-term research, Light for the World</span></div>
+      </div>
+      <div class="entry">
+        <div class="when">2018-19, 2020-21</div>
+        <div class="what"><span class="role">State Disability Consultant</span><span class="org">JEEViKA - State Rural Livelihoods Mission, Govt. of Bihar</span><p>Mainstreamed disability inclusion across the state poverty-alleviation programme. <b>Developed the Disability Inclusion Guideline, in implementation since August&nbsp;2020.</b></p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2018</div>
+        <div class="what"><span class="role">Disability Resource Person</span><span class="org">Odisha Livelihoods Mission - Panchayati Raj &amp; Drinking Water Dept., Govt. of Odisha</span><p>Training modules, staff sensitisation, and a three-day district/block orientation workshop.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2011 - 2017</div>
+        <div class="what"><span class="earlier-label">Earlier roles</span>
+          <ul class="earlier-list">
+            <li><span class="yr">2016-17</span><span><b>State Disability Consultant</b>, Sightsavers India (Bihar) - Sightsavers-BRLPS partnership; SHG micro-plans; financial-inclusion workshops; district/block staff training.</span></li>
+            <li><span class="yr">2016</span><span><b>National Volunteer</b>, VSO Action Research Project (Jharkhand) - 'Enhancing Employability of Youth with Disabilities through Inclusive ITI Curriculum', published in <em>Empowering Children with Disabilities</em>.</span></li>
+            <li><span class="yr">2014-15</span><span><b>Researcher / Documentation</b>, Shanta Memorial Rehabilitation Centre - USAID WWDIN Project.</span></li>
+            <li><span class="yr">2013-16</span><span><b>Research Fellow</b>, SDRS - Society for Disability and Rehabilitation Studies, New Delhi.</span></li>
+            <li><span class="yr">2011-13</span><span><b>SYLFF Fellow</b>, Ryoichi Sasakawa Young Leaders Fund - JNU; mentor to Viklang Adhikar Manch (Bihar) and Divyang Adhikar Manch (Jharkhand).</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="folio"><span><b>Deepa Palaniappan</b> · Curriculum vitae</span><span>Apr 2026</span><span>Page 2 / 3</span></div>
+</article>
+
+<!-- ============================== PAGE 3 ============================== -->
+<article class="page" aria-label="Page 3 - Education, Publications, Service" data-screen-label="03 Education & service">
+  <div class="ornament"><span class="glyph">Education, scholarship &amp; service</span><span class="bar"></span></div>
+
+  <section aria-label="Education">
+    <h2><span>Education</span><span class="num">§ 06</span></h2>
+    <div class="entries">
+      <div class="entry">
+        <div class="when">2019 - 2021</div>
+        <div class="what"><span class="role">Mid-career MA, Development Studies</span><span class="org">Graduate Institute Geneva (IHEID) - full scholarship</span><p>Thesis: a case study on NRLM and disability inclusion.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2003 - 2007</div>
+        <div class="what"><span class="role">MA &amp; MPhil, Political Science</span><span class="org">Jawaharlal Nehru University, New Delhi</span><p>Dissertation: <em>Approaches to Disability: Norms, Discourse and Policy</em>.</p></div>
+      </div>
+      <div class="entry">
+        <div class="when">2008 - 2009</div>
+        <div class="what"><span class="role">PG Diploma, Special Education (Neurological &amp; Multiple Disabilities)</span><span class="org">School of Rehabilitation Sciences, University of Delhi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Selected publications">
+    <h2><span>Selected publications</span><span class="num">§ 07</span></h2>
+    <div class="two-col">
+      <ol>
+        <li><b>'Enabling Policies'</b>, <em>Yojana</em>, Publications Division, Govt. of India, Dec 2020.</li>
+        <li>Friedner, Ghosh &amp; Palaniappan, <b>'"Cross-Disability" in India? On the Limits of Disability as a Category and the Work of Negotiating Impairments'</b>, <em>SAMAJ - South Asia Multidisciplinary Academic Journal</em>.</li>
+        <li>Palaniappan &amp; Rodrigues, <b>'Disability within the Rawlsian Framework of Justice'</b>, in A.&nbsp;Ghai (ed.), <em>Disability in South Asia: Knowledge and Experience</em>, Sage, 2018.</li>
+        <li>Palaniappan &amp; Guru, <b>'Skill Training for Adolescents with Disabilities: A Situational Analysis of Government ITIs in Jharkhand'</b>, in Sonpal &amp; Vaishnav (eds.), <em>Empowering Children with Disabilities</em>.</li>
+        <li><b>'Inner Marginalities and Sub-Group Politicization within the Disability Movement'</b>, <em>Café Dissensus</em>, 15 Aug 2016.</li>
+        <li><b>'ICT4D and Accessibility'</b>, Conf. Proc., Natl. Symposium on Disability, Assistive Technology and Farming, ICAR-CIAE Bhopal, Mar 2016.</li>
+        <li>Book Review, <em>International Journal of Disability Studies</em>, Vol.&nbsp;9, No.&nbsp;1-2, Jan-Dec 2015.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-label="Service, panels, and convening">
+    <h2><span>Convening, panels &amp; chairs</span><span class="num">§ 08</span></h2>
+    <div class="two-col">
+      <ol>
+        <li>Moderator, <b>World Health Innovation Forum</b>, AMTZ Vishakapatnam, 12 Dec 2024.</li>
+        <li>Jury member, <b>Assistive Technology Hackathon</b>, KIHT × AMTZ, 7-9 Apr 2025.</li>
+        <li>Panel member, '<b>Disability Justice: Looking Beyond Ableist Frames</b>', IDSK Kolkata, 12-13 Nov 2024.</li>
+        <li>Panellist, <b>University of Chicago Delhi Centre</b> Round Table - 'Disentangling Disability and Human Rights'.</li>
+        <li>Session Chair, '<b>Attitudinal and Communication Barriers</b>', JNU Natl. Conf. on Access to Higher Education, Mar 2015.</li>
+        <li>Co-Chair, '<b>Disability and Barrier-free Toileting in Indian Railways</b>', Indian Spinal Injuries Centre, Feb 2016.</li>
+        <li>Discussant, '<b>Disability and Social Inclusion</b>', JNU Natl. Conf. on Disability Studies in India.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-label="Fellowships, awards, training">
+    <h2><span>Fellowships, awards &amp; training</span><span class="num">§ 09</span></h2>
+    <div class="two-col">
+      <ol>
+        <li><b>NIEPID</b> - ex-General Council member, National Institute for the Empowerment of Persons with Intellectual Disabilities, nominated by the Ministry of Social Justice &amp; Empowerment, Govt. of India.</li>
+        <li><b>Distinguished Fellow</b>, Kalam Institute of Health Technology, WHO Collaborating Centre at AMTZ (2023-2025).</li>
+        <li><b>SYLFF Fellowship</b> - Ryoichi Sasakawa Young Leaders Fund (Nippon &amp; Tokyo Foundation), via JNU, 2010-2013.</li>
+        <li><b>Sarai-CSDS Student Stipend Award</b>, 2005-06 - 'Invisible in New Delhi: Spatial Narrative of Disabled in City Public Spaces'.</li>
+        <li><b>IHEID full scholarship</b>, Graduate Institute Geneva, 2019-2021.</li>
+        <li><b>CPACC</b>, IAAP - Certified Professional in Accessibility Core Competencies.</li>
+        <li><b>Built-Environment Accessibility</b>, NITS / BIS Capsule, May 2025.</li>
+        <li><b>FICCI DEI Virtual Programme</b>, Feb-Apr 2025.</li>
+        <li><b>CII-IBDN</b> Creating Disability-Inclusive Leaders @ Workplace, Jul-Aug 2024.</li>
+        <li><b>Assistive Technology Solutions</b>, 6-mo. cert., NISH Trivandrum, 2023.</li>
+        <li>WHO Quality Rights Training - Mental Health, Recovery and Community Inclusion.</li>
+        <li>Action Aid Intl. Training Course in Disability &amp; Development, Bangalore, 2011.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="folio"><span><b>Deepa Palaniappan</b> · Curriculum vitae</span><span>Apr 2026</span><span>Page 3 / 3</span></div>
+</article>
+
+</main>
+<button type="button" class="pdf-btn" onclick="window.print()" aria-label="Save this CV as PDF">Save as PDF ↓</button>
+</body>
+</html>
