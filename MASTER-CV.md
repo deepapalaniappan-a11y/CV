@@ -36,7 +36,7 @@
 @contact: deepa.palaniappan@gmail.com · +91 9110041713 · Bangalore, India · disability-rights-repository.org · bit.ly/CV-Deepa
 
 ## PROFILE
-Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Named contributor to the WHO Global Report on Health Equity for Persons with Disabilities (2022). Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020, and is currently one of two members of the committee drafting the Tamil Nadu State Disability Policy. Assistant Professor at Azim Premji University, and consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility, and founder of the Disability Rights Repository and EquitableDocs initiatives.
+Disability inclusion, accessibility and policy professional with over a decade of experience across government, United Nations and World Bank systems, academia and grassroots practice. Named contributor to the WHO Global Report on Health Equity for Persons with Disabilities (2022). Developed the Bihar State Disability Inclusion Guideline, in implementation since 2020, and is currently one of two members of the committee drafting the Tamil Nadu State Disability Policy. Served as Assistant Professor at Azim Premji University, and as consultant to the WHO Disability Unit, Geneva (two assignments) and the World Bank. IAAP-certified accessibility professional (CPACC) with applied expertise in assistive technology, document accessibility and built-environment accessibility; developed the Disability Rights Repository and initiated EquitableDocs, a document accessibility initiative.
 
 ## EDUCATION
 - **Mid-career Master’s in Development Studies,** Graduate Institute Geneva (IHEID), full scholarship, 2019 to 2021. Thesis: case study on the National Rural Livelihoods Mission and disability inclusion.
@@ -89,10 +89,10 @@ Disability inclusion, accessibility and policy professional with over a decade o
 
 ## INITIATIVES
 - **Disability Rights Repository.** [disability-rights-repository.org](https://disability-rights-repository.org). Developed and maintains a web portal that builds the documentation capabilities of organisations of persons with disabilities, OPD leaders and patient advocates, and creates visibility for community-based grassroots practitioners.
-- **EquitableDocs.** [equitabledocs.org](https://equitabledocs.org). Founder of a document equity initiative providing accessible-document remediation for students at no cost and capacity-building partnerships for universities, with a Global South focus.
+- **EquitableDocs.** [equitabledocs.org](https://equitabledocs.org). Initiated this document accessibility initiative, providing accessible-document remediation for students at no cost and capacity-building partnerships for universities, with a Global South focus.
 
 ## PROFESSIONAL EXPERIENCE
-### Assistant Professor, then Consultant @@ Office of Disability Inclusion, Azim Premji University @@ Assistant Professor Dec 2022 to Jul 2025; Consultant Jul 2025 to present
+### Assistant Professor, then Consultant @@ Office of Disability Inclusion, Azim Premji University @@ Assistant Professor Dec 2022 to Jul 2025; Consultant Jul 2025 to Mar 2026
 - Taught and developed course content; led reasonable-accommodation, disability-inclusion and accessibility interventions across the University.
 - Designed and delivered training and faculty-development sessions; liaised with faculty, departments and external experts.
 ### Consultant @@ World Health Organization HQ, Disability Unit, Geneva (two assignments) @@ Oct 2021 to Sep 2022; Aug 2023 to Dec 2023

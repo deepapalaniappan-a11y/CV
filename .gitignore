@@ -2,15 +2,22 @@
 ~$*
 *.tmp
 
-# scratch renders and previews
+# Scratch renders and previews
 _*.png
-_*.pdf
 
-# Private: role-tailored CVs and the old source CV must NOT go to the public repo
+# Private working files: never publish these
 Deepa_Palaniappan_CV_IIMC_Training_Associate.*
 Deepa Palaniappan April 2026.pdf
 *_TAILORED_*.docx
 *_TAILORED_*.pdf
-
-# Private: internal process and decisions log (contains personal notes; keep local)
 DECISIONS-AND-HISTORY.md
+Final CVs/
+CV design/
+CV design- new claude pdfs/
+
+# Public repo keeps only the system files and ONE online CV PDF.
+# Ignore every PDF, Word doc and zip, then re-include the single web PDF.
+*.pdf
+*.docx
+*.zip
+!docs/Deepa_Palaniappan_CV_2026.pdf
