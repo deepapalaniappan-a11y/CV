@@ -26,3 +26,7 @@ Claude Design Handover Files/
 *.pdf
 *.docx
 *.zip
+
+# Monthly snapshot archive: dated copies of each CV update, local only.
+# Structure: archive/YYYY-MM/YYYY-MM-DD_<variant>.{html,pdf}
+archive/
