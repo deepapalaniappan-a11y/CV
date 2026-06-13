@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deepa Palaniappan</title>
-<meta name="description" content="Deepa Palaniappan. Disability inclusion, accessibility and policy work across grassroots, government, university and international settings.">
+<title>Deepa Palaniappan, CV (print)</title>
+<meta name="description" content="Deepa Palaniappan. Disability inclusion, accessibility and policy work across grassroots, government, university and international settings. Print-friendly single-column variant.">
 <meta name="author" content="Deepa Palaniappan">
 <meta name="theme-color" content="#FFFFFF">
 
@@ -25,28 +25,8 @@
   --link-visited:#5A2E7A;
   --mark:#FFF7C2;
 }
-:root[data-theme="dark"]{
-  --paper:#14161A;
-  --ink:#ECECEC;
-  --ink-2:#CFCFCF;
-  --ink-3:#9E9E9E;
-  --hair:#2D2F33;
-  --rule:#3A3D42;
-  --link:#86B6F0;
-  --link-visited:#C9A6E6;
-  --mark:#3B3008;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme]){
-    --paper:#14161A;--ink:#ECECEC;--ink-2:#CFCFCF;--ink-3:#9E9E9E;
-    --hair:#2D2F33;--rule:#3A3D42;--link:#86B6F0;--link-visited:#C9A6E6;--mark:#3B3008;
-  }
-}
-
 *{box-sizing:border-box}
 html{font-size:16px;-webkit-text-size-adjust:100%}
-html[data-size="lg"]{font-size:17.5px}
-html[data-size="xl"]{font-size:19px}
 
 body{
   margin:0;background:var(--paper);color:var(--ink);
@@ -67,28 +47,12 @@ body{
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
 
-/* ---------- Single-column reading frame ---------- */
+/* ---------- Single-column reading frame (mirrors paper feel on screen too) ---------- */
 .page{
-  max-width:55rem;            /* ~ 880 px */
+  max-width:55rem;
   margin:0 auto;
-  padding:3rem 1.5rem 6rem;
+  padding:2.5rem 1.5rem 4rem;
 }
-
-/* ---------- Quiet preferences strip (top right) ---------- */
-.prefs{
-  display:flex;justify-content:flex-end;gap:.75rem;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  font-size:.75rem;color:var(--ink-3);margin-bottom:1.5rem;
-}
-.prefs .size{display:inline-flex;align-items:baseline;gap:.125rem}
-.prefs .size button,
-.prefs .theme{
-  background:transparent;border:0;padding:.1875rem .375rem;cursor:pointer;
-  color:var(--ink-3);font:inherit;border-radius:.125rem;
-}
-.prefs .size button[aria-pressed="true"]{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.prefs .theme{border:1px solid var(--rule);padding:.1875rem .5rem}
-.prefs .theme:hover,.prefs .size button:hover{color:var(--ink)}
 
 /* ---------- Header (name + contact + photo) ---------- */
 header.id{
@@ -161,10 +125,6 @@ mark{background:var(--mark);color:inherit;padding:0 .125rem}
   border-radius:.25rem;
   background:color-mix(in oklab, var(--paper) 96%, var(--ink) 4%);
 }
-:root[data-theme="dark"] .initiative{
-  background:#1B1C20;
-  border-color:var(--rule);
-}
 .initiative + .initiative{margin-top:.875rem}
 .initiative > p.who{margin-top:0}
 .initiative > p:last-child{margin-bottom:0}
@@ -190,15 +150,23 @@ footer.foot a{color:var(--link)}
 /* ---------- Focus ---------- */
 a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:.125rem}
 ::selection{background:#D8E6F4;color:var(--ink)}
-:root[data-theme="dark"] ::selection{background:#1F3D5E;color:#fff}
 
 /* ---------- Print ---------- */
+@page{size:A4;margin:18mm 16mm 18mm 16mm}
 @media print{
-  :root{--paper:#fff;--ink:#000;--ink-2:#222;--ink-3:#555;--hair:#ccc;--rule:#888;--link:#0B4F8A}
-  .prefs,.skip{display:none !important}
+  :root{--paper:#fff;--ink:#000;--ink-2:#1a1a1a;--ink-3:#444;--hair:#bbb;--rule:#666;--link:#000;--link-visited:#000}
+  html{font-size:10.5pt}
+  .skip{display:none !important}
   body{background:#fff;color:#000}
   .page{max-width:none;padding:0}
-  section{break-inside:avoid-page}
+  section{break-inside:avoid}
+  section > h2{break-after:avoid}
+  .entry{break-inside:avoid}
+  header.id{break-after:avoid}
+  a{color:#000;text-decoration:underline;text-decoration-thickness:.5px}
+  a[href^="http"]::after{content:" \003C" attr(href) "\003E";font-size:.85em;color:#444;word-break:break-all}
+  a[href^="mailto"]::after,a[href^="tel"]::after{content:""}
+  footer.foot{break-before:auto}
 }
 </style>
 </head>
@@ -207,18 +175,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offse
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="page" id="main">
-
-<!-- Quiet preferences strip -->
-<div class="prefs" role="group" aria-label="Display preferences">
-  <span class="size" role="group" aria-label="Text size">
-    <button type="button" data-size="md" aria-pressed="true" title="Default text size">A</button>
-    <button type="button" data-size="lg" aria-pressed="false" title="Larger text">A+</button>
-    <button type="button" data-size="xl" aria-pressed="false" title="Largest text">A++</button>
-  </span>
-  <button type="button" class="theme" id="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode">
-    <span class="lbl">Dark</span>
-  </button>
-</div>
 
 <!-- ===== Identity ===== -->
 <header class="id">
@@ -529,50 +485,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--link);outline-offse
 </footer>
 
 </div>
-
-<script>
-(function(){
-  var root = document.documentElement;
-  var themeBtn = document.getElementById('theme-toggle');
-  var themeLbl = themeBtn.querySelector('.lbl');
-  var sizeBtns = document.querySelectorAll('.prefs .size button');
-
-  function applyTheme(t){
-    if(t==='dark'){
-      root.setAttribute('data-theme','dark');
-      themeBtn.setAttribute('aria-pressed','true');
-      themeLbl.textContent='Light';
-    } else {
-      root.setAttribute('data-theme','light');
-      themeBtn.setAttribute('aria-pressed','false');
-      themeLbl.textContent='Dark';
-    }
-  }
-  function applySize(s){
-    if(s==='md'){ root.removeAttribute('data-size'); }
-    else { root.setAttribute('data-size', s); }
-    sizeBtns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.size===s)); });
-  }
-  try{
-    var t = localStorage.getItem('cvB-theme');
-    if(t){ applyTheme(t); }
-    var s = localStorage.getItem('cvB-size') || 'md';
-    applySize(s);
-  }catch(e){}
-  themeBtn.addEventListener('click', function(){
-    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-    try{ localStorage.setItem('cvB-theme', next); }catch(e){}
-  });
-  sizeBtns.forEach(function(b){
-    b.addEventListener('click', function(){
-      var s = b.dataset.size;
-      applySize(s);
-      try{ localStorage.setItem('cvB-size', s); }catch(e){}
-    });
-  });
-})();
-</script>
 
 </body>
 </html>

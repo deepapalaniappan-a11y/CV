@@ -30,3 +30,6 @@ Claude Design Handover Files/
 # Monthly snapshot archive: dated copies of each CV update, local only.
 # Structure: archive/YYYY-MM/YYYY-MM-DD_<variant>.{html,pdf}
 archive/
+
+# Local preview folders for design variants under review. Not for deploy.
+previews-*/
